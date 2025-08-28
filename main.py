@@ -175,10 +175,7 @@ def create_pdf():
         pdf.cell(25, 8, str(row['pallet_qty']), 1, 1, 'C')
     
     pdf_bytes = pdf.output(dest='S').encode('latin-1')
-    buffer = BytesIO()
-    buffer.write(pdf_bytes)
-    buffer.seek(0)
-    return buffer
+    return BytesIO(pdf_bytes)
 
 # --- Streamlit App ---
 st.set_page_config(layout="wide", page_title="Sistema Hidroneumático")
