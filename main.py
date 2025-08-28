@@ -17,7 +17,7 @@ ciclos_por_potencia = {
     '20.0': [15, 4],
     '30.0': [12, 5],
     '50.0': [10, 6],
-    '50.1': [6, 10]
+        '50.1': [6, 10]
 }
 
 # Datos de la tabla comercial de tanques
