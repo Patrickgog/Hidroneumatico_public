@@ -91,9 +91,9 @@ def create_pdf():
     pdf.ln(5)
     
     # Parámetros de entrada
-    pdf.set_font('Arial', 'B', 12)
+    pdf.set_font('helvetica', 'B', 12)
     pdf.cell(0, 10, 'Parámetros de Entrada:', 0, 1, 'L')
-    pdf.set_font('Arial', '', 10)
+    pdf.set_font('helvetica', '', 10)
     
     qb = st.session_state.get('qb', 0)
     p_off = st.session_state.get('p_off', 0)
@@ -141,10 +141,10 @@ def create_pdf():
 
     # Hoja 2: Tabla de Ciclos por Hora y Selección de Tanque Comercial
     pdf.add_page()
-    pdf.set_font('Arial', 'B', 14)
+    pdf.set_font('helvetica', 'B', 14)
     pdf.cell(0, 10, 'Tabla de Ciclos por Hora', 0, 1, 'C')
     pdf.ln(5)
-    pdf.set_font('Arial', '', 10)
+    pdf.set_font('helvetica', '', 10)
     pdf.cell(65, 8, 'Rango de Potencia (HP)', 1, 0, 'C')
     pdf.cell(65, 8, 'Máximo Número de Ciclos por Hora', 1, 0, 'C')
     pdf.cell(50, 8, 'Tiempo Mínimo (minutos)', 1, 1, 'C')
@@ -154,10 +154,10 @@ def create_pdf():
         pdf.cell(50, 8, str(row['Tiempo Mínimo (minutos)']), 1, 1, 'C')
 
     pdf.ln(10)
-    pdf.set_font('Arial', 'B', 14)
+    pdf.set_font('helvetica', 'B', 14)
     pdf.cell(0, 10, 'Selección de Tanque Comercial', 0, 1, 'C')
     pdf.ln(5)
-    pdf.set_font('Arial', '', 9)
+    pdf.set_font('helvetica', '', 9)
     pdf.cell(35, 8, 'Código', 1, 0, 'C')
     pdf.cell(25, 8, 'Capacidad (L)', 1, 0, 'C')
     pdf.cell(20, 8, 'Presión', 1, 0, 'C')
