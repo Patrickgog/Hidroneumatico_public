@@ -174,7 +174,9 @@ def create_pdf():
         pdf.cell(25, 8, str(row['packaging']), 1, 0, 'C')
         pdf.cell(25, 8, str(row['pallet_qty']), 1, 1, 'C')
     
-    pdf_bytes = pdf.output(dest='S').encode('utf-8')
+    pdf_bytes = pdf.output(dest='S')
+    if isinstance(pdf_bytes, str):
+        pdf_bytes = pdf_bytes.encode('latin-1')
     return BytesIO(pdf_bytes)
 
 # --- Streamlit App ---
