@@ -17,7 +17,7 @@ ciclos_por_potencia = {
     '20.0': [15, 4],
     '30.0': [12, 5],
     '50.0': [10, 6],
-    '50.1': [6, 10]
+    '50.1': [6, 10]
 }
 
 # Datos de la tabla comercial de tanques
@@ -174,7 +174,7 @@ def create_pdf():
         pdf.cell(25, 8, str(row['packaging']), 1, 0, 'C')
         pdf.cell(25, 8, str(row['pallet_qty']), 1, 1, 'C')
     
-    pdf_bytes = pdf.output(dest='S').encode('latin-1')
+    pdf_bytes = pdf.output(dest='S').encode('utf-8')
     return BytesIO(pdf_bytes)
 
 # --- Streamlit App ---
