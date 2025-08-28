@@ -174,7 +174,11 @@ def create_pdf():
         pdf.cell(25, 8, str(row['packaging']), 1, 0, 'C')
         pdf.cell(25, 8, str(row['pallet_qty']), 1, 1, 'C')
     
-    return pdf.output(dest='S').encode('latin-1')
+    pdf_bytes = pdf.output(dest='S').encode('latin-1')
+    buffer = BytesIO()
+    buffer.write(pdf_bytes)
+    buffer.seek(0)
+    return buffer
 
 # --- Streamlit App ---
 st.set_page_config(layout="wide", page_title="Sistema Hidroneumático")
@@ -322,7 +326,7 @@ with col2:
             
             st.download_button(
                 label="📥 Descargar PDF",
-                data=st.session_state['pdf_data_for_download'],
+                data=st.session_state['pdf_data_for_download'].getvalue(),
                 file_name=filename,
                 mime="application/pdf",
                 use_container_width=True
